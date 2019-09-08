@@ -79,12 +79,12 @@ In questo caso assumiamo che il termine token si riferisca alla rappresentazione
 Un currency token, come ad esempio il bitcoin, rappresenta una valuta digitale e sono un mezzo di scambio.
 Un utility token è usato all'interno di una rete per poter accedere ad una funzionzionalità o per il funzionamento di questa. 
 In modo simile a quanto già detto sui token, i security tokens si riferiscono ad una rappresentazione digitale tramite blockchain di securities. La definizione di security tuttavia varia a seconda della legislazione applicabile. Negli Stati Uniti le securities sono definite nell'U.S. Code of Laws 15 §77b(a)(1) come:
-\cite{The term ‘‘security’’ means any note, stock, treasury stock, security future, bond, debenture, evidence of indebtedness, certificate of interest or participation in any profit sharing agreement, collateral-trust certificate, preorganization certificate or subscription, transferable share, investment
+The term ‘‘security’’ means any note, stock, treasury stock, security future, bond, debenture, evidence of indebtedness, certificate of interest or participation in any profit sharing agreement, collateral-trust certificate, preorganization certificate or subscription, transferable share, investment
 contract, voting-trust certificate, certificate of deposit for a security, fractional undivided interest in oil, gas, or other mineral rights, any put, call, straddle, option, or privilege on any security, certificate of deposit, or group or index of securities (including any interest therein or based on the value thereof), or
 any put, call, straddle, option, or privilege entered into on a national securities exchange relating to foreign currency, or, in general, any interest or instrument commonly known as a ‘‘security’’, or any certificate of interest or participation in, temporary or interim certificate for, receipt for, guarantee of,
-or warrant or right to subscribe to or purchase, any of the foregoing.”}
+or warrant or right to subscribe to or purchase, any of the foregoing.”
 
-Invece in Italia l'equivaente delle securities sono gli strumenti finanziari definiti nel D.lgs 24 febbraio 1998 n.58, noto come testo unico della finanza, abbreviato TUF, o anche legge Draghi. 
+Invece in Italia l'equivalente delle securities sono gli strumenti finanziari definiti nel D.lgs 24 febbraio 1998 n.58, noto come testo unico della finanza, abbreviato TUF, o anche legge Draghi. 
 
 
 https://www.investopedia.com/terms/h/howey-test.asp
@@ -100,3 +100,108 @@ In a recent paper (2019), Ante & Fielder [24] compare STOs with ICOs and share t
 
 
 https://alphapoint.com/wp-content/uploads/2019/08/Tokenized-Security-Commercial-Real-Estate.pdf
+
+
+ They share the same legal constructs as traditional securities but often enable additional technical features (such as automatic
+payments, transparent ownership history, and immutable ownership record) by
+virtue of being on the blockchain. To date, the U.S. CFTC, IRS, and SEC have provided
+some guidance around the status of digitally represented assets, but ambiguity
+remains.
+In the U.S., the Howey test is a test used to determine whether certain transactions
+qualify as ‘investment contract’. If so, the transaction falls under securities law and is
+therefore subject to the regulatory oversight of the SEC. The offer, sale, and
+distribution of securities is regulated in the U.S. and requires registration of both the
+security and the venues on which that security trades or to qualify for an exemption
+from registration. Recent SEC “Framework for ‘Investment Contract’ Analysis of
+Digital Assets” provides detailed guidance on the application of the Howey Test to
+5
+digital assets. According to the framework, an investment contract exists when there
+is the investment of money in a common enterprise with a reasonable expectation
+of profits to be derived from the efforts of others. These are the four prongs of Howey
+Test: 1)The Investment of Money 2)Common Enterprise 3)Reasonable Expectation of
+Profits 4) Derived from Efforts of Others
+It is important to note that securities regulation is typically technology agnostic.
+Anything that represents a security (whether a piece of paper, a record in a database,
+or a token on a blockchain) that is bought or sold falls by legal definition under
+securities law. Thus, "security token" is a token (technology implementation) that
+acts as a security (legal concept).
+Other non-U.S. jurisdictions have issued guidance on their definitions of various
+types of tokens; however, differences exist depending on jurisdiction and different
+uses in terminology abound. Two examples below are from the Financial Conduct
+Authority (FCA), UK guidance from January, 2019 and the Swiss Financial Market
+Supervisory Authority (FINMA) guidance from February, 2018. They have primarily
+distinguished between ‘utility token’ and ‘security / asset token’:
+ UK Financial Conduct Authority (2019):
+“Security tokens are tokens with specific characteristics that mean they meet
+the definition of a Specified Investment like a share or a debt instrument as
+set out in the Regulated Activities Order, and are within the perimeter.
+While, utility tokens grant holders access to a current or prospective product
+or service but do not grant holders rights that are the same as those granted
+by Specified Investments.”
+6
+Swiss Financial Market Supervisory Authority (2018):
+“Asset tokens represent assets such as participations in real physical
+underlyings, companies, or earnings streams, or an entitlement to dividends
+or interest payments. In terms of their economic function, the tokens are
+analogous to equities, bonds or derivatives.
+While, Utility tokens are tokens which are intended to provide digital access
+to an application or service.”
+
+Security Tokens vs. Tokenized Security
+We believe it is important to make a distinction between two types of
+blockchain-based representations of securities: “security tokens”, which are
+blockchain-native tokens are securities but do not exist outside of the blockchain,
+versus “tokenized securities”, which are blockchain-embedded representations of
+real world securities.
+Both security tokens and tokenized securities can confer benefits over traditional
+means of representing securities, such as on paper, or digitally in siloed databases.
+However, they differ largely in the type of legal and regulatory frameworks they may
+require to achieve impactful adoption. Settlement finality is one example. Finality
+refers to a transaction being considered ‘final’ and it cannot be unwound. It is crucial
+that any transfer of payment or transfer of ownership of an asset has finality and is
+binding on both parties. As per the DTCC white paper titled ‘Guiding Principles for
+8
+the Post-Trade Processing of Tokenized Securities’, the point at which settlement
+becomes final is determined by both the rules of the market (operational finality)
+and the governing legal framework in the relevant jurisdiction (legal finality).
+Operational finality concerns would arise for both native and embedded securities
+and would be dependent on the consensus mechanism of the underlying
+blockchain. However, a framework to confer legal finality to the transfer of
+cryptographic keys may be needed to support the use of blockchain native
+securities. On the other hand, with tokenized securities, where existing processes are
+augmented using blockchain-based systems to represent securities during some or
+all points of the transfer of ownership process, clarity around legal finality is often
+aligned with current definitions
+The differences between security tokens and tokenized securities are outlined in the
+table below. Our research focuses primarily on tokenized securities given that many
+viable blockchain projects today augment rather than entirely replace the traditional
+market infrastructures for securities.
+Security Token vs. Tokenized Security
+Security Token Tokenized Security
+Blockchain native Blockchain embedded
+Token represents a security that doesn’t
+exist outside of the blockchain (DAO,
+collateralized crypto loan, etc.)
+Token represents a security that exists
+independent from a blockchain
+(Tokenized equity, debt, etc)
+To date, security tokens have imitated
+traditional securities, although there is
+potential for disruption when structured
+products are layered on top
+Traditional security achieves additional
+features (positive or negative) by being
+represented by a token, such as
+automatic payments
+Similar to ‘Bearer asset’ Similar to ‘Depository receipt’
+Tokenized Security vs. Tokenized Asset
+Security tokenization is a subset of asset tokenization (all securities are assets but
+not all assets are securities). Our work focuses on the tokenization of securities that
+have reference to underlying real assets, specifically commercial real estate. For
+example, tokenization of an asset such as a land title is a tokenized asset, as opposed
+to the tokenization of an equity or debt share.
+
+
+https://doi.org/10.2139/ssrn.3356303
+
+https://decrypt.co/5311/security-token-offerings-advantages
