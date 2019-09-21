@@ -2,15 +2,17 @@
 \renewcommand{\chaptermark}[1]{\markright{\thechapter \ #1}{}}
 \lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
 \appendix                               %imposta le appendici
-\chapter{Prima Appendice}               %crea l'appendice
-In questa Appendice non si \`e utilizzato il comando:\\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\verb"" è equivalente all'
-                                        %   ambiente verbatim,
-                                        %   ma si utilizza all'interno
-                                        %   di un discorso.
-\verb"\clearpage{\pagestyle{empty}\cleardoublepage}", ed infatti
-l'ultima pagina 8 ha l'intestazione con il numero di pagina in
-alto.
+\chapter{ERC-20 Interface Implementation}               %crea l'appendice
+\label{appendix:ERC-20Interface}
+\lstinputlisting[language=Solidity,caption=OpenZeppelin ERC-20 Inferface Implementation,frame=tlrb]{IERC20.sol}
+
+\lstinputlisting[language=Solidity,caption=ConsenSys ERC-20 Inferface Implementation,frame=tlrb]{EIP20Interface.sol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
-\rhead[\fancyplain{}{\bfseries \thechapter \:Prima Appendice}]
+\rhead[\fancyplain{}{\bfseries \thechapter \:ERC-20 Interface Implementation}]
+{\fancyplain{}{\bfseries\thepage}}
+
+\chapter{Seconda Appendice}             %crea l'appendice
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
+Testo
+\rhead[\fancyplain{}{\bfseries \thechapter \:Seconda Appendice}]
 {\fancyplain{}{\bfseries\thepage}}
