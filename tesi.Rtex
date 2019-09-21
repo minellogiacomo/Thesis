@@ -19,6 +19,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{comment}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per impostare il documento
 \usepackage{fancyhdr}
@@ -44,6 +45,7 @@
 \usepackage{amsmath}
 \usepackage{latexsym}
 \usepackage{amsthm}
+
 
 \usepackage{listings}
 \usepackage{parcolumns}
@@ -98,9 +100,34 @@
 \input{2capitolo.tex}
 
 \clearpage{\pagestyle{empty}\cleardoublepage}
+%--------------------------------------------------------------
 
-\input{3capitolo.tex}
+\chapter{Analisi delle Security Token Offering}
+++INCLUDERE DATI SEPARATI PER FONTE DEI DATI
 
+
+http://www.scirp.org/journal/paperinformation.aspx?paperid=93164
+
+https://doi.org/10.2139/ssrn.3356303
+
+\section{Analisi dei dati}
+\subsection{Dati delle STO Polymath}
+
+You can type R commands in your \LaTeX{} document and they will be properly run and the output printed in the document.
+
+<<chunk1>>=
+X = 2:10
+summary(X)
+@
+%--------------------------------------------------------------------------------
+
+\subsection{Dati delle STO Harbor}
+\subsection{Dati delle STO Swarm}
+\subsection{Dati delle STO ... }
+\section{Tendenze e previsioni}
+
+
+%--------------------------------------------------------------
 \input{4capitolo.tex}
 
 \input{5capitolo.tex}
