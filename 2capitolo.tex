@@ -17,19 +17,27 @@ Una proposta più recente e che ha ottenuto maggiore supporto sia dalla communit
 ERC-20 definisce un'interfaccia standard che rappresenta un token. Lo standard fornice funzionalità basilari per il trasferimento dei token. Lo scopo principale dello standard è quello di permettere interoperabilità tra le applicazioni che supportano lo standard, come ad esempio wallets ed exchanges. 
 Due delle implementazioni più diffuse di questo standard sono state realizzate da OpenZeppelin e ConsenSys. Le due implementazioni sono entrambe pienamente compatibili con lo standard sebbene presentino delle lievi differenze come si può osservare in appendice \ref{appendix:ERC-20Interface}.
 
-commento from https://eips.ethereum.org/EIPS/eip-20
+Una nota interessante si può trarre osservando i cambiamenti avvenuti durante lo sviluppo iniziale dello standard. Se in principio le prime bozze dello standard prevedevano un focus sulla creazione di "Coin", gli sviluppatori in modo lungimirante hanno deciso di generalizzare il protocollo per renderlo applicabile ad ogni bene fungibile trasferibile, motivo per il quale è stata scelta la denominazione più generica di "token"\cite{https://www.reddit.com/r/ethereum/comments/3n8fkn/lets_talk_about_the_coin_standard/}.
+
 
 \subsection{ERC-20 proprietary extension}
 \subsubsection{ST-20}
-Sr
+Lo standard ST-20 introdotto da Polymath nasce con l'obbiettivo di aggiungere all'interfaccia ERC20 la possibilità di inserire restrizioni allo scambio di token in modo da poter essere conforme alle normative sulle securities. 
+https://blog.polymath.network/overview-of-the-st-20-interface-and-polymath-core-86bf64c8929
 \subsubsection{R-Token}
+https://medium.com/coinmonks/a-security-token-harbors-r-token-c147ba9557b4
 \subsubsection{DS Protocol}
+https://medium.com/securitize/ds-protocol-the-basic-elements-23fabcb5c85f
 \subsubsection{T-REX}
+https://tokeny.com/wp-content/uploads/2018/12/t-rex-whitepaper.pdf
 \subsubsection{S3}
+https://medium.com/openfinance/openfinance-network-smart-security-standard-s3-contract-270e7e4f4d22
 \subsubsection{Atomic-DSS}
+https://github.com/AtomicCapital/atomic-dss
 
 \section{Implementazione con token ERC-721 e ERC-1155}
-
+http://erc721.org/
+https://www.cryptoclubitalia.it/enjin-token-erc-1155-videogiochi/
 \section{Implementazione con token ERC-1400}
 \subsection{ERC-1410: Partially Fungible Token Standard}
 https://github.com/ethereum/EIPs/issues/1410
@@ -45,11 +53,16 @@ https://github.com/ethereum/EIPs/issues/2258
 \subsection{SRC20}
 https://www.swarm.fund/src20
 \subsection{Stellar}
+https://medium.com/quillhash/ethereum-or-stellar-which-platform-is-best-suitable-for-your-ico-sto-7f1368bb942c
 \subsection{EOS}
+https://stoupdates.com/eos-enters-the-security-token-scene-with-the-launch-of-new-protocol/
 \subsection{Hyperledger}
 \subsection{Corda}
+https://stowise.com/company/r3/
 \subsection{Tezos}
+https://www.reddit.com/r/tezos/comments/cdl2bu/tezos_explainer_3_reasons_why_tezos_is_the_best/
 \subsection{NEO}
+https://www.securities.io/neo-announces-formation-of-security-token-industry-consortium/
 \subsection{Tron}
 \section{Considerazioni sulle implementazioni}
 

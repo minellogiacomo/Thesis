@@ -8,6 +8,9 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per scrivere in italiano
 \usepackage[italian]{babel}
+
+\usepackage{longtable}
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per accettare i caratteri
                                         %   digitati da tastiera come è à
@@ -117,11 +120,13 @@ https://doi.org/10.2139/ssrn.3356303
 
 \section{Analisi dei dati}
 \subsection{Dati delle STO Polymath}
+\input{polymathSTOData.tex}
 
 You can type R commands in your \LaTeX{} document and they will be properly run and the output printed in the document.
 
 <<chunk1>>=
 X = 2:10
+min(X)
 summary(X)
 @
 %--------------------------------------------------------------------------------
