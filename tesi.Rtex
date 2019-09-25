@@ -107,27 +107,25 @@
 
 \chapter{Analisi delle Security Token Offering}
 \cite{http://www.scirp.org/journal/paperinformation.aspx?paperid=93164}
-The only empirical study we found on STOs is the one of Ante e Fielder who claim to have analyzed a dataset of 151 security tokens. We think that our subject is slightly different from theirs given that—in our opinion—most of the offers they have been able to review do not represent “intentional” STOs. Indeed, many of the companies that launched their ICO before 2018 did not even realized that the tokens issued could be seen as securities by financial regulatory authorities. For instance, the tokens issued by the DAO organization in April 2016 on Ethereum have been considered as so by the Securities and Exchange Commission (SEC) in 2017 [27]. Many other US companies were concerned by the SEC rules without knowing and, in 2017, none had registered as a security offering. Some, like the startup Munchee, were even fined and forced to refund buyers because they should have limited their sales to accredited investors. Therefore, including such ICOs in an empirical analysis of STOs seems inappropriate to us since neither their issuers nor their investors knew they had traded securities.
+Ad oggi sono stati pubblicati solamente due studi empirici riguardo le STO. Il primo studio, pubblicato da Ante e Fielder, si avvale di un dataset composto da 151 security token, più precisamente token che svolgono il ruolo di securities ma non per questo necessariamente conformi alle normative in materia di securities. Ad esempio, tra i token analizzati nel suddetto studio è considerato il token DAO che è stato riconosciuto nel 2017 come security dalla SEC. Tuttavia il token DAO non è mai stato autorizzato per l'emissione. allo stesso modo molti altri token considerati non sono mai stati registrati come securities. 
+Di conseguenza, includere queste ICO in un'analisi empirica  delle STO risulta inappropriato poiché ne gli issuer ne gli investitori erano al corrente di operare con securities. 
 
-Unfortunately, most STOs that can be characterized as intentional, and that clearly implement profit sharing solutions, are less than a year old. This greatly limits the possibility of empirical analysis.
-
-++INCLUDERE DATI SEPARATI PER FONTE DEI DATI
-https://token.security/stn/article-tag/analysis/
-
-http://www.scirp.org/journal/paperinformation.aspx?paperid=93164
-
-https://doi.org/10.2139/ssrn.3356303
+Il secondo studio, condotto da Florie Mazzorana-Kremer, analizza un ristretto sottoinsieme di STO selezionate secondo criteri specifici con il fine di analizzare il turnover dei token. Questo studio presenta delle conclusioni particolarmente rilevanti sebbene l'autrice stessa esprime le grandi limitazioni di un analisi empirica di un fenomeno così recente. 
+La maggior parte delle STO che rispettano i canoni definiti nel presente elaborato infatti sono limitate al trading per investitori accreditati o sono limitate a giurisdizioni specifiche. Ciò presenta un problema per la raccolta dei dati storici, anch'essi spesso disponibili solo a investitori accreditati. 
+Al fine di fornire un contributo originale verranno in seguito analizzati non dati di trading, bensì dati riguardo le caratteristiche di un sottoinsieme di security token. 
 
 \section{Analisi dei dati}
 \subsection{Dati delle STO Polymath}
+La seguente serie di dati riguarda i token emessi tramite la piattaforma Polymath. La fonte dei dati non è ufficiale e non è ne pubblicata ne mantenuta da Polymath, bensì opera di un membro della community. Nonostante ciò è possibile verificare l'elenco dei token emessi e le loro caratteristiche grazie alla struttura della piattaforma Polymath e alla natura pubblica della blockchain Ethereum. Nei dati sono compresi nove token di test emessi dalla stessa azienda per verificare il corretto funzionamento della piattaforma. Inoltre, è possibile notare come alcuni token siano stati aggiornati dalla versione 2.0.0 basata sullo standard ST-20 alla versione 3.0.0 basata sullo standard ERC-1400. 
+
 \input{polymathSTOData.tex}
 
-You can type R commands in your \LaTeX{} document and they will be properly run and the output printed in the document.
+Di seguito viene presentata la metodologia di analasi e i risultati della stessa. 
 
 <<chunk1>>=
 X = 2:10
-min(X)
 summary(X)
+
 @
 %--------------------------------------------------------------------------------
 
