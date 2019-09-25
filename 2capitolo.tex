@@ -1,26 +1,32 @@
 \chapter{Confronto tra le implementazioni}
-Nel corso degli ultimi anni la community di sviluppatori ha portato avanti diverse iniziative per imporre uno standard condiviso per le security token offering. Inizialmente lo standard de facto è stato ERC-20, già ampiamente adottato dalla maggior parte delle Initial coin Offering. Tra gli standard utilizzati per le STO, ERC-20 è lo standard più maturo e con maggiore supporto essendo stato creato verso la fine del 2015. Altri tentativi di standardizzazione nascono dalla necessità di garantire all'issuer della security token offering una maggiore governance e per facilitare il rispetto delle regolamentazioni sulle securities. Non a caso infatti possiamo osservare come molti tentativi di standardizzazione siano stati operati da aziende che offrono piattaforme per il token issuing. Per la maggior parte di queste aziende l'approccio è stato quello di estendere lo standard ERC-20, in modo da ottenere retrocompatibilità ed essere più appetibili alla community di sviluppatori con conoscenza dello standard sopracitato. Tra i casi che verranno analizzati troviamo: 
+Nel corso degli ultimi anni la community di sviluppatori ha portato avanti diverse iniziative per imporre uno standard condiviso per le security token offering. Inizialmente lo standard de facto è stato ERC-20\cite{K37}, già ampiamente adottato dalla maggior parte delle Initial coin Offering. Tra gli standard utilizzati per le STO, ERC-20 è lo standard più maturo e con maggiore supporto essendo stato creato verso la fine del 2015. Altri tentativi di standardizzazione nascono dalla necessità di garantire all'issuer della security token offering una maggiore governance e per facilitare il rispetto delle regolamentazioni sulle securities. Non a caso infatti possiamo osservare come molti tentativi di standardizzazione siano stati operati da aziende che offrono piattaforme per il token issuing. Per la maggior parte di queste aziende l'approccio è stato quello di estendere lo standard ERC-20, in modo da ottenere retrocompatibilità ed essere più appetibili alla community di sviluppatori con conoscenza dello standard sopracitato. Tra i casi che verranno analizzati troviamo: 
 \begin{itemize}
-    \item ST-20, sviluppato da Polymath
-    \item R-Token, sviluppato da Harbor
-    \item SRC20, sviluppato da Swarm
-    \item DS Protocol, sviluppato da Securitize
-    \item T-REX sviluppato da Tokeny
+    \item ST-20\cite{K38}, sviluppato da Polymath
+    \item R-Token\cite{K39}, sviluppato da Harbor
+    \item SRC20\cite{K40}, sviluppato da Swarm
+    \item DS Protocol\cite{K41}, sviluppato da Securitize
+    \item T-REX\cite{K42}, sviluppato da Tokeny
+    \item S3\cite{K43}, sviluppato da OpenFinace
+    \item Atomic-DSS\cite{K44}, sviluppato da Atomic Capital
 \end{itemize}
 
 Altri standard si sono sviluppati a partire da necessità diverse, come nel caso degli standard ERC-721 ed ERC-1155 che implementano token non fungibili. La notorietà di questi protocolli è in parte dovuta all'introduzione del concetto di scarsità digitale tramite l'utilizzo di token non omogenei, un approccio che ben si presta all'ambito videoludico. 
-Una proposta più recente e che ha ottenuto maggiore supporto sia dalla community sia da aziende, alcune delle quali già in possesso di uno standard propietario, è lo standard ERC-1400, rinominato Security Token Standard. ERC-1400 è una collezione di diversi standard sviluppati per essere interoperabili e facilmente estendibili all'emergere della necessità di nuove funzionalità da introdurre. 
+Una proposta più recente e che ha ottenuto maggiore supporto sia dalla community sia da aziende, alcune delle quali già in possesso di uno standard propietario, è lo standard ERC-1400, rinominato Security Token Standard\cite{K45}. ERC-1400 è una collezione di diversi standard sviluppati per essere interoperabili e facilmente estendibili all'emergere della necessità di nuove funzionalità da introdurre. Il passaggio ad uno standard condiviso e supportato da più stakeholder rappresenta uno step fondamentale par la diffusione di questo fenomeno.
 
 \section{Implementazione con token ERC-20}
 ERC-20 definisce un'interfaccia standard che rappresenta un token. Lo standard fornice funzionalità basilari per il trasferimento dei token. Lo scopo principale dello standard è quello di permettere interoperabilità tra le applicazioni che supportano lo standard, come ad esempio wallets ed exchanges. 
-Due delle implementazioni più diffuse di questo standard sono state realizzate da OpenZeppelin e ConsenSys. Le due implementazioni sono entrambe pienamente compatibili con lo standard sebbene presentino delle lievi differenze come si pio osservare in appendice \ref{appendix:ERC-20Interface}.
+Due delle implementazioni più diffuse di questo standard sono state realizzate da OpenZeppelin e ConsenSys. Le due implementazioni sono entrambe pienamente compatibili con lo standard sebbene presentino delle lievi differenze come si può osservare in appendice \ref{appendix:ERC-20Interface}.
 
-
-https://eips.ethereum.org/EIPS/eip-20
+commento from https://eips.ethereum.org/EIPS/eip-20
 
 \subsection{ERC-20 proprietary extension}
-
-https://www.swarm.fund/src20
+\subsubsection{ST-20}
+Sr
+\subsubsection{R-Token}
+\subsubsection{DS Protocol}
+\subsubsection{T-REX}
+\subsubsection{S3}
+\subsubsection{Atomic-DSS}
 
 \section{Implementazione con token ERC-721 e ERC-1155}
 
@@ -36,8 +42,17 @@ https://github.com/ethereum/EIPs/issues/1644
 \subsection{ERC-2258: Custodial Ownership Standard}
 https://github.com/ethereum/EIPs/issues/2258
 \section{Implementazione in altre blockchain}
+\subsection{SRC20}
+https://www.swarm.fund/src20
 \subsection{Stellar}
 \subsection{EOS}
-\section{Comparazione delle implementazioni}
+\subsection{Hyperledger}
+\subsection{Tezos}
+\subsection{NEO}
+\subsection{Tron}
+\section{Considerazioni sulle implementazioni}
 
 https://info.binance.com/en/research/marketresearch/tokenization.html SUPER IMPORTANT
+
+https://medium.com/atomic-capital/state-of-the-standards-a-technical-review-of-current-digital-securities-standards-3bc79f5aaf73
+https://medium.com/@ElectricCapital/electric-capital-developer-report-h1-2019-7d836d68fecb
