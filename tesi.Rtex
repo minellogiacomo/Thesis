@@ -136,9 +136,9 @@ summary(X)
 
 
 %--------------------------------------------------------------
-\input{4capitolo.tex}
 
-\input{5capitolo.tex}
+
+\input{4capitolo.tex}
 
 \input{conclusioni.tex}
 
