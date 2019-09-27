@@ -123,8 +123,10 @@ La seguente serie di dati riguarda i token emessi tramite la piattaforma Polymat
 Di seguito viene presentata la metodologia di analasi e i risultati della stessa. 
 
 <<chunk1>>=
-X = 2:10
-summary(X)
+STOData <- read.csv(file="token.csv", header=TRUE, sep=",");
+
+length(count.fields("token.csv")) - 1
+
 
 @
 %--------------------------------------------------------------------------------
