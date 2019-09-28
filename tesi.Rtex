@@ -8,7 +8,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per scrivere in italiano
 \usepackage[italian]{babel}
-
+\usepackage{listings}
 \usepackage{longtable}
 
 %
@@ -89,18 +89,21 @@
 \lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries INDICE}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%non numera l'ultima pagina sinistra
 \clearpage{\pagestyle{empty}\cleardoublepage}
-\listoffigures                          %crea l'elenco delle figure
+\listoffigures 
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\lstlistoflistings %crea l'elenco delle figure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%non numera l'ultima pagina sinistra
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \listoftables                           %crea l'elenco delle tabelle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%non numera l'ultima pagina sinistra
-
 
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
 \input{1capitolo.tex}
 
 \input{2capitolo.tex}
+
+\input{3capitolo.tex}
 
 \clearpage{\pagestyle{empty}\cleardoublepage}
 %--------------------------------------------------------------
@@ -111,10 +114,25 @@ Ad oggi sono stati pubblicati solamente due studi empirici riguardo le STO. Il p
 Di conseguenza, includere queste ICO in un'analisi empirica  delle STO risulta inappropriato poiché ne gli issuer ne gli investitori erano al corrente di operare con securities. 
 
 Il secondo studio, condotto da Florie Mazzorana-Kremer, analizza un ristretto sottoinsieme di STO selezionate secondo criteri specifici con il fine di analizzare il turnover dei token. Questo studio presenta delle conclusioni particolarmente rilevanti sebbene l'autrice stessa esprime le grandi limitazioni di un analisi empirica di un fenomeno così recente. 
-La maggior parte delle STO che rispettano i canoni definiti nel presente elaborato infatti sono limitate al trading per investitori accreditati o sono limitate a giurisdizioni specifiche. Ciò presenta un problema per la raccolta dei dati storici, anch'essi spesso disponibili solo a investitori accreditati. 
-Al fine di fornire un contributo originale verranno in seguito analizzati non dati di trading, bensì dati riguardo le caratteristiche di un sottoinsieme di security token. 
+La maggior parte delle STO che rispettano i canoni definiti nel presente elaborato infatti sono limitate al trading per investitori accreditati o sono limitate a giurisdizioni specifiche. Ciò presenta un problema per la raccolta dei dati storici, anch'essi spesso disponibili solo a investitori accreditati. In primo luogo verranno analizzati fonti secondarie che permettono di fornire un'interessante panoramica del fenomeno delle STO.  
+Al fine di fornire un contributo originale in seguito si analizzeranno non dati di trading, bensì dati riguardo le caratteristiche di un sottoinsieme di security token. 
 
 \section{Analisi dei dati}
+\subsection{5th ICO/STO Report}
+Una fonte secondaria che risulta mmolto utile per comprendere meglio il fenomeno delle STO è il report pubblicato da PWC in associazione con CryptoValley. Questo report, giunto alla quinta edizione mira a delinare con chiarezza l'evoluzione del fenomeno delle ICO, delle STO e delle IEO. Sebbene le fonti di dati primarie utilizzate dallo studio non siano state rese pubbliche è ragionevole assubere la bontà dei risultati in quanto congrui con le osservazioni presentate in questo elaborato. 
+La definizione adottata el report per identificare se una token sale sia o meno una STO è: "Security Token Offering (“STO”) is a sale of tokens with features comparable to normal securities, i.e., fully regulated and approved within at least one jurisdiction." Ciò risulta essere in linea con la definizione adottata in questo elaborato ed è quindi possibile procedere a discutere i risultati di questo report. 
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{tokensales.png}
+  \caption{Token sales data}
+  \label{fig:tksales}
+\end{figure}
+Per prima cosa osserviamo che i dati presentati in figura \ref{fig:tksales} siano in linea con i dati osservati in figura \ref{fig:ico}. 
+Successivamente, in ambito di security token offerings, osserviamo la figura \ref{fig:stoieo}. 
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{stoieo.png}
+  \caption{IEO e STO}
+  \label{fig:stoieo}
+\end{figure}
 \subsection{Dati delle STO Polymath}
 La seguente serie di dati riguarda i token emessi tramite la piattaforma Polymath. La fonte dei dati non è ufficiale e non è ne pubblicata ne mantenuta da Polymath, bensì opera di un membro della community. Nonostante ciò è possibile verificare l'elenco dei token emessi e le loro caratteristiche grazie alla struttura della piattaforma Polymath e alla natura pubblica della blockchain Ethereum. Nei dati sono compresi nove token di test emessi dalla stessa azienda per verificare il corretto funzionamento della piattaforma. Inoltre, è possibile notare come alcuni token siano stati aggiornati dalla versione 2.0.0 basata sullo standard ST-20 alla versione 3.0.0 basata sullo standard ERC-1400. 
 
@@ -131,16 +149,12 @@ length(count.fields("token.csv")) - 1
 @
 %--------------------------------------------------------------------------------
 
-\subsection{Dati delle STO Harbor}
-\subsection{Dati delle STO Swarm}
-\subsection{Dati delle STO ... }
 \section{Tendenze e previsioni}
 
 
 %--------------------------------------------------------------
 
 
-\input{4capitolo.tex}
 
 \input{conclusioni.tex}
 
