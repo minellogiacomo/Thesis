@@ -3,11 +3,9 @@ Nel corso degli ultimi anni la community di sviluppatori ha portato avanti diver
 \begin{itemize}
     \item ST-20\cite{K38}, sviluppato da Polymath
     \item R-Token\cite{K39}, sviluppato da Harbor
-    \item SRC20\cite{K40}, sviluppato da Swarm
     \item DS Protocol\cite{K41}, sviluppato da Securitize
     \item T-REX\cite{K42}, sviluppato da Tokeny
     \item S3\cite{K43}, sviluppato da OpenFinace
-    \item Atomic-DSS\cite{K44}, sviluppato da Atomic Capital
 \end{itemize}
 
 Altri standard si sono sviluppati a partire da necessità diverse, come nel caso degli standard ERC-721 ed ERC-1155 che implementano token non fungibili. La notorietà di questi protocolli è in parte dovuta all'introduzione del concetto di scarsità digitale tramite l'utilizzo di token non omogenei, un approccio che ben si presta all'ambito videoludico. 
@@ -46,20 +44,43 @@ Una appunto interessante si può trarre osservando i cambiamenti avvenuti durant
 \subsection{ERC-20 proprietary extension}
 \subsubsection{ST-20}
 Lo standard ST-20 introdotto da Polymath nasce con l'obbiettivo di aggiungere all'interfaccia ERC20 la possibilità di inserire restrizioni allo scambio di token in modo da poter essere conforme alle normative sulle securities. 
-In appendice \ref{appendix:ST20} è possibile osservare l'interfaccia dello smart contract che definisce un security token che rispetta lo standard ST-20. Trattandosi di un'estensione, lo smart contract è compatibile con lo standard ERC-20 e ne implementa tutte le funzioni e gli eventi previsti, aggiungendo a questi altre funzionalità e caratteristiche che agevolano l'adattabilità e la governance della STO. 
-https://blog.polymath.network/overview-of-the-st-20-interface-and-polymath-core-86bf64c8929
+In appendice \ref{appendix:ST20} è possibile osservare l'interfaccia dello smart contract che definisce un security token che rispetta lo standard ST-20. Trattandosi di un'estensione, lo smart contract è compatibile con lo standard ERC-20 e ne implementa tutte le funzioni e gli eventi previsti, aggiungendo a questi altre funzionalità e caratteristiche che agevolano l'adattabilità e la governance della STO. Per esempio, nel caso dello scambio senza restrizioni tra due parti, un caso che non sempre è desiderabile nelle STO, le transazioni possono essere limitare da una funzione "verifyTransfer". Ciò permette inoltre l'implementazione di una whitelist, una blacklist, un limite minimo/massimo di trasferimento, etc. 
+In modo più dettagliato, l'interfaccia creata da Polymath si avvale principalmente di tre tipi componenti: un primo tipo detto "Transfer Manager", un tipo di moduli denominati "permission modules" e infine un modulo che si occupa delle funzionalità della token sale, ovvero, gli "STO modules". 
+L'utilizzo di numerose componenti per implementare diverse funzionalità permette di avere un architettura modulare che comprende di volta in volta solamente le funzionalità richieste, permettendo così di rendere lo smart contract più efficiente.
+
 \subsubsection{R-Token}
-https://medium.com/coinmonks/a-security-token-harbors-r-token-c147ba9557b4
+R-token, implementat da Harbor offre delle caratteristiche che lo rendono particolarmente innovativo, tanto da essere concettualmente compatibile con un token ERC-1400.Un altro aspetto particolare del protocollo è l'integrazione di una whitelist per gli exchange presenti nell'ecosistema proposto da Harbor. 
+R-Token, che sta per "regualted token" si differenzia dagli altri standard compatibili con ERC-20 D<per l'adozione di alcuni servizi di document management e di custody. 
+Generalmente una STO Harbor si compone di tre smart contracts;
+\begin{itemize}
+    \item Un "Regulator Service" che si occupa di interagire tramite un oracolo con la regolamentazione definita off.chain. 
+    \item Un "Service Registry" che contiene un riferimento al "Regulator Service". Questo riferimento può essere modificato per permettere di aggiornare la business logic della STO. 
+    \item Uno smart contract "R-Token" che contiene le caratteristiche del token, le sue funzioni e un riferimento immutabile al "Service Registry"
+\end{itemize}
 \subsubsection{DS Protocol}
-https://medium.com/securitize/ds-protocol-the-basic-elements-23fabcb5c85f
-https://github.com/securitize-io/DSTokenInterfaces
-https://www.securities.io/securitize-ds-token-protocol-goes-open-source/
+L'estensione di ERC-20 proposta da Securitize ha due componenti principali. Il primo è lo smart contract "DSTokenInterface" che nel complesso non risulta apportare cambiamenti rilevanti rispetto ai protocolli già presentati. Il secondo componente risulta essere più originale ed è lo smart contract "DSServiceConsumerInterface" definito come segue:
+\begin{lstlisting}[language=Solidity,numbers=none]
+function getDSService(uint _serviceId) public view returns (address);
+
+function setDSService(uint _serviceId, address _address) public /*onlyMaster*/ returns (bool);
+\end{lstlisting}
+queste funzioni permettono l'associazione dinamica di componenti e di verificare la presenza componenti  in modo dinamico (al fine di mantenere compatibilità tra diverse versioni del protocollo). I servizi sono identificati da un id nel seguente modo:
+\begin{lstlisting}[language=Solidity,numbers=none]
+ uint public constant TRUST_SERVICE = 1;
+ uint public constant DS_TOKEN = 2;
+ uint public constant REGISTRY_SERVICE = 4;
+ uint public constant COMPLIANCE_SERVICE = 8;
+ uint public constant COMMS_SERVICE = 16;
+ uint public constant WALLET_MANAGER = 32;
+ uint public constant LOCK_MANAGER = 64;
+ uint public constant ISSUANCE_INFORMATION_MANAGER = 128;
+ \end{lstlisting}
 \subsubsection{T-REX}
-https://tokeny.com/wp-content/uploads/2018/12/t-rex-whitepaper.pdf
+T-REX, per esteso "Token for Regulated EXchanges", Presenta un approccio diverso rispetto ad altri protocolli. L'identità infatti ricopre un ruolo fondamentale nel protocollo, tanto da prevedere dei meccanismi di gestione dell'identità dell'investitore on-chain secondo i protocolli ERC-725 ed ERC-735. Il meccanismo di controllo dell'identità sostituisce la logica di whitelisting e blacklisting rendendo il protocollo più flessibile. Possiamo osservervare il funzionamento del protocollo nel seguente diagramma: 
+
 \subsubsection{S3}
 https://medium.com/openfinance/openfinance-network-smart-security-standard-s3-contract-270e7e4f4d22
-\subsubsection{Atomic-DSS}
-https://github.com/AtomicCapital/atomic-dss
+
 
 \section{Implementazione con token ERC-721 e ERC-1155}
 http://erc721.org/
