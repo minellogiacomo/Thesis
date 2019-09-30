@@ -76,15 +76,35 @@ queste funzioni permettono l'associazione dinamica di componenti e di verificare
  uint public constant ISSUANCE_INFORMATION_MANAGER = 128;
  \end{lstlisting}
 \subsubsection{T-REX}
-T-REX, per esteso "Token for Regulated EXchanges", Presenta un approccio diverso rispetto ad altri protocolli. L'identità infatti ricopre un ruolo fondamentale nel protocollo, tanto da prevedere dei meccanismi di gestione dell'identità dell'investitore on-chain secondo i protocolli ERC-725 ed ERC-735. Il meccanismo di controllo dell'identità sostituisce la logica di whitelisting e blacklisting rendendo il protocollo più flessibile. Possiamo osservervare il funzionamento del protocollo nel seguente diagramma: 
-
+T-REX, per esteso "Token for Regulated EXchanges", Presenta un approccio diverso rispetto ad altri protocolli. L'identità infatti ricopre un ruolo fondamentale nel protocollo, tanto da prevedere dei meccanismi di gestione dell'identità dell'investitore on-chain secondo i protocolli ERC-725 ed ERC-735. Il meccanismo di controllo dell'identità sostituisce la logica di whitelisting e blacklisting rendendo il protocollo più flessibile. Possiamo osservare il funzionamento del protocollo nel seguente diagramma in figura \ref{fig:trex}.
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{trex.png}
+  \caption{Sequence diagram of a Distributed Security Token Exchange  transaction with T-REX tokens}
+  \label{fig:trex}
+\end{figure}
 \subsubsection{S3}
-https://medium.com/openfinance/openfinance-network-smart-security-standard-s3-contract-270e7e4f4d22
+S3, per esteso Smart Securities Standard, è un altra estensione di ERC-20 che si distingue per una semplice caratteristica di compliance. Infatti Il protocollo S3 include degli smart contract dedicati ad implementare le restrizioni e le regole imposte dalla Regulation D, la Regulation S, la Regulation A+ e Regulation CF.
 
+\begin{lstlisting}[language=Solidity,numbers=none]
+///RegD506c.sol
+/// @title Functions that tokens will need to call to configure themselves 
+contract RegD506c is TransferRestrictor {
+  function startHoldingPeriod() public;
+  function registerAmlKycChecker(address _checker, address _token) public;
+  function registerAccreditationChecker(address _checker, address _token) public;
+}
+\end{lstlisting}
 
+Questo approccio semplifica notevolmente la struttura del protocollo ma presenta numerosi svantaggi, soprattutto in termini di manutenibilità. Nell'ultima versione disponibile del protocollo l'approccio è mutato notevolmente, tanto che la restrizione degli scambi è delegata ad un altro smart contract non specificato. 
 \section{Implementazione con token ERC-721 e ERC-1155}
-http://erc721.org/
-https://www.cryptoclubitalia.it/enjin-token-erc-1155-videogiochi/
+Sebbene non siano pensati in modo specifico per le securities, gli standard ERC-721 ed ERC-1155 sono rilevanti per l'argomento analizzato in quanto permettono di tokenizzare assets fisici. Tramite l'introduzione del concetto di non fungibilità nello standard ERC-721 infatti è possibile definire uno smart contract in cui un token è unico. Questo concetto si può applicare con facilità ad oggetti rari, unici oppure ogni tipo di oggetto collezionabile. La sua implementazione più famosa è il progetto CryptoKitties, un gioco che permette di comprare, vendere e scambiare carte virtuali. nel 2017 il gioco divenne talmente popolare da congestionare la rete Ethereum. Ogni carta rappresenta un CryptoKitty, ovvero un token  non-fungibile. Ad oggi sono stati scambiati Cryptokitties per un valore superiore a 27 milioni di dollari. Il valore di un singolo token può raggiungere cifre molto alte e sono nati exchange dedicati a questo protocollo, come possiamo vedere in figura \ref{figure:kitty}.
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{kitty.png}
+  \caption{Second most expensive CryptoKitty, traded on a specialized exchange}
+  \label{fig:kitty}
+\end{figure}
+ERC-1155 rappresenta un evoluzione dei token ERC-20 ed ERC-721, poiché permette di gestire sia token fungibili che non fungibili in un unico contratto, permettendo transazioni con più token di tipo diverso. Questa funzionalità è stata realizzata con l'obbiettivo di permettere l'adozione di token in videogiochi più complessi rispetto a CryptoKitties, come nel caso di giochi che permetto la vendita, l'acquisto e lo scambio di una currency del gioco e di oggetti virtuali. 
+
 \section{Implementazione con token ERC-1400}
 https://github.com/ConsenSys/ERC1400
 https://blog.polymath.network/erc1400-implementation-approach-c668c4fbf40
@@ -116,7 +136,12 @@ https://www.securities.io/neo-announces-formation-of-security-token-industry-con
 \subsection{Tron}
 \section{Considerazioni sulle implementazioni}
 
-https://info.binance.com/en/research/marketresearch/tokenization.html SUPER IMPORTANT
+
+
+
+https://info.binance.com/en/research/marketresearch/tokenization.html 
+
+
 
 https://medium.com/atomic-capital/state-of-the-standards-a-technical-review-of-current-digital-securities-standards-3bc79f5aaf73
 https://medium.com/@ElectricCapital/electric-capital-developer-report-h1-2019-7d836d68fecb
