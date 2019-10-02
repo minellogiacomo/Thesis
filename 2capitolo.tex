@@ -39,7 +39,7 @@ Approval(address indexed _owner, address indexed _spender, uint256 _value)
 \end{lstlisting}
 Due delle implementazioni più diffuse di questo standard sono state realizzate da OpenZeppelin e ConsenSys. Le due implementazioni sono entrambe pienamente compatibili con lo standard sebbene presentino delle lievi differenze come si può osservare in appendice \ref{appendix:ERC-20Interface}.
 
-Una appunto interessante si può trarre osservando i cambiamenti avvenuti durante lo sviluppo iniziale dello standard. Se in principio le prime bozze dello standard prevedevano un focus sulla creazione di "Coin", gli sviluppatori in modo lungimirante hanno deciso di generalizzare il protocollo per renderlo applicabile ad ogni bene fungibile trasferibile, motivo per il quale è stata scelta la denominazione più generica di "token"\cite{https://www.reddit.com/r/ethereum/comments/3n8fkn/lets_talk_about_the_coin_standard/}.
+Una appunto interessante si può trarre osservando i cambiamenti avvenuti durante lo sviluppo iniziale dello standard. Se in principio le prime bozze dello standard prevedevano un focus sulla creazione di "Coin", gli sviluppatori in modo lungimirante hanno deciso di generalizzare il protocollo per renderlo applicabile ad ogni bene fungibile trasferibile, motivo per il quale è stata scelta la denominazione più generica di "token".
 
 \subsection{ERC-20 proprietary extension}
 \subsubsection{ST-20}
@@ -97,7 +97,7 @@ contract RegD506c is TransferRestrictor {
 
 Questo approccio semplifica notevolmente la struttura del protocollo ma presenta numerosi svantaggi, soprattutto in termini di manutenibilità. Nell'ultima versione disponibile del protocollo l'approccio è mutato notevolmente, tanto che la restrizione degli scambi è delegata ad un altro smart contract non specificato. 
 \section{Implementazione con token ERC-721 e ERC-1155}
-Sebbene non siano pensati in modo specifico per le securities, gli standard ERC-721 ed ERC-1155 sono rilevanti per l'argomento analizzato in quanto permettono di tokenizzare assets fisici. Tramite l'introduzione del concetto di non fungibilità nello standard ERC-721 infatti è possibile definire uno smart contract in cui un token è unico. Questo concetto si può applicare con facilità ad oggetti rari, unici oppure ogni tipo di oggetto collezionabile. La sua implementazione più famosa è il progetto CryptoKitties, un gioco che permette di comprare, vendere e scambiare carte virtuali. nel 2017 il gioco divenne talmente popolare da congestionare la rete Ethereum. Ogni carta rappresenta un CryptoKitty, ovvero un token  non-fungibile. Ad oggi sono stati scambiati Cryptokitties per un valore superiore a 27 milioni di dollari. Il valore di un singolo token può raggiungere cifre molto alte e sono nati exchange dedicati a questo protocollo, come possiamo vedere in figura \ref{figure:kitty}.
+Sebbene non siano pensati in modo specifico per le securities, gli standard ERC-721 ed ERC-1155 sono rilevanti per l'argomento analizzato in quanto permettono di tokenizzare assets fisici. Tramite l'introduzione del concetto di non fungibilità nello standard ERC-721 infatti è possibile definire uno smart contract in cui un token è unico. Questo concetto si può applicare con facilità ad oggetti rari, unici oppure ogni tipo di oggetto collezionabile. La sua implementazione più famosa è il progetto CryptoKitties, un gioco che permette di comprare, vendere e scambiare carte virtuali. nel 2017 il gioco divenne talmente popolare da congestionare la rete Ethereum. Ogni carta rappresenta un CryptoKitty, ovvero un token  non-fungibile. Ad oggi sono stati scambiati Cryptokitties per un valore superiore a 27 milioni di dollari. Il valore di un singolo token può raggiungere cifre molto alte e sono nati exchange dedicati a questo protocollo, come possiamo vedere in figura \ref{fig:kitty}.
 \begin{figure}[H]
   \includegraphics[width=\linewidth]{kitty.png}
   \caption{Second most expensive CryptoKitty, traded on a specialized exchange}
@@ -106,42 +106,206 @@ Sebbene non siano pensati in modo specifico per le securities, gli standard ERC-
 ERC-1155 rappresenta un evoluzione dei token ERC-20 ed ERC-721, poiché permette di gestire sia token fungibili che non fungibili in un unico contratto, permettendo transazioni con più token di tipo diverso. Questa funzionalità è stata realizzata con l'obbiettivo di permettere l'adozione di token in videogiochi più complessi rispetto a CryptoKitties, come nel caso di giochi che permetto la vendita, l'acquisto e lo scambio di una currency del gioco e di oggetti virtuali. 
 
 \section{Implementazione con token ERC-1400}
-https://github.com/ConsenSys/ERC1400
-https://blog.polymath.network/erc1400-implementation-approach-c668c4fbf40
-https://github.com/bokkypoobah/SecurityToken
+Lo standard ERC-1400 è nato in seguito allo sforzo di numerosi operatori del settore per cercare di ottenere uno standard condiviso. Grazie all'ampio supporto ricevuto da queste aziende, alcune delle quali già promotrici di standard illustrati in precedenza, ERC-1400 si sta affermando come uno standard \textit{de facto} per la creazione di security token offerings.
+Inizialmente ERC-1400 è stato pensato come uno standard per realizzare security token ma già dalle prime fasi di sviluppo è emersa la necessità di definire un protocollo modulare e facilmente espandibile. Proprio per questo, ERC-1400 è una collezione di standard interoperabili. Lo sviluppo di ERC-1400 non segue una roadmap definita in quanto lo scopo degli autori è quello di aggiungere il supporto di nuove funzionalità qualora gli utilizzatori ne esprimano il bisogno. Nonostante la mancanza di una roadmap, gli autori hanno informalmente assicurato nuove release approssimativamente ogni sei mesi, questo per facilitare l'adozione da parte delle aziende interessate.  
+Grazie alla discussione tra più gruppi e al contributo di più aziende, lo standard copre la maggior parte degli scenari che possono presentarsi in una STO. Ad esempio, nella figura \ref{fig:1400} possiamo vedere come siano stati dedicati diversi codici di errore a varie situazioni, un notevole miglioramento nell'aspetto di governance rispetto allo standard ERC-20. 
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{1400.png}
+  \caption{ERC-1400 Error cases examples}
+  \label{fig:1400}
+\end{figure}
+
+La collezione di standard definiti da ERC-1400 ad oggi fornisce funzionalità di gestione della documentazione, gestione degli errori, controllo delle transazioni, input di dati off-chain, gestione dell'emissione dei token e differenziazione dei token. 
+Analizzare nel dettaglio queste features risulta agevole grazie alla modularità dello standard. Al momento, ERC-1400 comprende i seguenti standard:
+\begin{itemize}
+    \item ERC-1410
+    \item ERC-1594
+    \item ERC-1643
+    \item ERC-1644
+    \item ERC-2258 (in fase di adozione) 
+\end{itemize}
+
 \subsection{ERC-1410: Partially Fungible Token Standard}
-https://github.com/ethereum/EIPs/issues/1410
+Il primo standard previsto da ERC-1400 è lo standard ERC-1410, che riguarda l'introduzione del concetto di fungibilità parziale. Oltre ad essere il primo standard introdotto è anche il più corposo poiché aggiunge un meccanismo di partizioni per ottenere non fungibilità parziale. All'interno di ogni partizione ogni token è fungibile ma token di partizioni diverse sono non fungibili tra loro.   
+
+\begin{lstlisting}[language=Solidity,numbers=none]
+/// @title ERC-1410 Partially Fungible Token Standard
+/// @dev See https://github.com/SecurityTokenStandard/EIP-Spec
+
+interface IERC1410 {
+
+    // Token Information
+    function balanceOf(address _tokenHolder) external view returns (uint256);
+    function balanceOfByPartition(bytes32 _partition, address _tokenHolder) external view returns (uint256);
+    function partitionsOf(address _tokenHolder) external view returns (bytes32[]);
+    function totalSupply() external view returns (uint256);
+
+    // Token Transfers
+    function transferByPartition(bytes32 _partition, address _to, uint256 _value, bytes _data) external returns (bytes32);
+    function operatorTransferByPartition(bytes32 _partition, address _from, address _to, uint256 _value, bytes _data, bytes _operatorData) external returns (bytes32);
+    function canTransferByPartition(address _from, address _to, bytes32 _partition, uint256 _value, bytes _data) external view returns (byte, bytes32, bytes32);    
+
+    // Operator Information
+    function isOperator(address _operator, address _tokenHolder) external view returns (bool);
+    function isOperatorForPartition(bytes32 _partition, address _operator, address _tokenHolder) external view returns (bool);
+
+    // Operator Management
+    function authorizeOperator(address _operator) external;
+    function revokeOperator(address _operator) external;
+    function authorizeOperatorByPartition(bytes32 _partition, address _operator) external;
+    function revokeOperatorByPartition(bytes32 _partition, address _operator) external;
+
+    // Issuance / Redemption
+    function issueByPartition(bytes32 _partition, address _tokenHolder, uint256 _value, bytes _data) external;
+    function redeemByPartition(bytes32 _partition, uint256 _value, bytes _data) external;
+    function operatorRedeemByPartition(bytes32 _partition, address _tokenHolder, uint256 _value, bytes _operatorData) external;
+
+    // Transfer Events
+    event TransferByPartition(
+        bytes32 indexed _fromPartition,
+        address _operator,
+        address indexed _from,
+        address indexed _to,
+        uint256 _value,
+        bytes _data,
+        bytes _operatorData
+    );
+
+    // Operator Events
+    event AuthorizedOperator(address indexed operator, address indexed tokenHolder);
+    event RevokedOperator(address indexed operator, address indexed tokenHolder);
+    event AuthorizedOperatorByPartition(bytes32 indexed partition, address indexed operator, address indexed tokenHolder);
+    event RevokedOperatorByPartition(bytes32 indexed partition, address indexed operator, address indexed tokenHolder);
+
+    // Issuance / Redemption Events
+    event IssuedByPartition(bytes32 indexed partition, address indexed operator, address indexed to, uint256 amount, bytes data, bytes operatorData);
+    event RedeemedByPartition(bytes32 indexed partition, address indexed operator, address indexed from, uint256 amount, bytes operatorData);
+
+}
+\end{lstlisting}
+
+Ogni partizione è identificata da una chiave e dei metadati arbitrari. Ogni token contiene le informazioni sulla partizione a cui appartiene. 
+Questo meccanismo di partizioni risulta utile per identificare e distinguere token che hanno restrizioni o benefici diversi. Infatti, questa funzionalità permette di distinguere i token in base alla fase della token sale in cui sono stati generati per permettere il vesting dei token oppure per determinare differenti capacità di voto legate al possesso del token. 
+
 \subsection{ERC-1594: Core Security Token Standard}
-https://github.com/ethereum/EIPs/issues/1594
+Questo standard permette l'esecuzione di operazioni che includono l'iterazione tra dati on-chain e off-chain. Fornire dati off-chain permette ad esempio di eseguire una operazioni autorizzate off-chain con una firma, senza dover ricorrere ad una whitelist on-chain. Questo protocollo si occupa anche di verificare la possibilità di eseguire un operazione e restituire un appropriato status code di risposta, evitando di dover provare ad eseguire l'operazione per poi vederla fallire. 
+Infine, in questo standard vengono incorporate le funzionalità di gestione della token sale, in particolare con le funzioni relative all'emissione e alla riscossione. 
+
+\begin{lstlisting}[language=Solidity,numbers=none]
+/// @title IERC1594 Security Token Standard
+/// @dev See https://github.com/SecurityTokenStandard/EIP-Spec
+
+interface IERC1594 is IERC20 {
+
+    // Transfers
+    function transferWithData(address _to, uint256 _value, bytes _data) external;
+    function transferFromWithData(address _from, address _to, uint256 _value, bytes _data) external;
+
+    // Token Issuance
+    function isIssuable() external view returns (bool);
+    function issue(address _tokenHolder, uint256 _value, bytes _data) external;
+
+    // Token Redemption
+    function redeem(uint256 _value, bytes _data) external;
+    function redeemFrom(address _tokenHolder, uint256 _value, bytes _data) external;
+
+    // Transfer Validity
+    function canTransfer(address _to, uint256 _value, bytes _data) external view returns (bool, byte, bytes32);
+    function canTransferFrom(address _from, address _to, uint256 _value, bytes _data) external view returns (bool, byte, bytes32);
+
+    // Issuance / Redemption Events
+    event Issued(address indexed _operator, address indexed _to, uint256 _value, bytes _data);
+    event Redeemed(address indexed _operator, address indexed _from, uint256 _value, bytes _data);
+
+}
+\end{lstlisting}
+
+
 \subsection{ERC-1643: Document Management Standard}
-https://github.com/ethereum/EIPs/issues/1643
+Questo standard permette di collegare dei documenti ad uno smart contract ed offre la possibilità di aggiornarli. I documenti possono essere per esempio prospetti informativi sulla security ed in generale qualsiasi documento legale necessario.
+\begin{lstlisting}[language=Solidity,numbers=none]
+/// @title IERC1643 Document Management (part of the ERC1400 Security Token Standards)
+/// @dev See https://github.com/SecurityTokenStandard/EIP-Spec
+
+interface IERC1643 {
+
+    // Document Management
+    function getDocument(bytes32 _name) external view returns (string, bytes32, uint256);
+    function setDocument(bytes32 _name, string _uri, bytes32 _documentHash) external;
+    function removeDocument(bytes32 _name) external;
+    function getAllDocuments() external view returns (bytes32[]);
+
+    // Document Events
+    event DocumentRemoved(bytes32 indexed _name, string _uri, bytes32 _documentHash);
+    event DocumentUpdated(bytes32 indexed _name, string _uri, bytes32 _documentHash);
+
+}
+\end{lstlisting}
+Una lieve criticità di questo standard è la gestione di documenti privati. Questo standard infatti rende possibili solo due alternative per gestire questo caso d'uso: rendere pubblico il documento privato oppure imporre una password per accedere al documento (dovendo quindi fornire una password all'interessato tramite un canale di comunicazione esterno). Al momento, non essendo presenti alternative valide, il metodo preferibile è il secondo. 
+
 \subsection{ERC-1644: Controller Token Operation Standard}
-https://github.com/ethereum/EIPs/issues/1644
+Questo standard permette di eseguire operazioni di trasferimento forzato dei token. Poiché soggetti a regolamentazioni diverse in base alla giurisdizione, in alcuni casi i security tokens devono poter essere trasferiti forzatamente. Questa situazione si presenta nel caso in cui ci sia necessità di annullare una transazione fraudolenta o per rispondere ad ordini del tribunale. Vista la sensibilità di questa operazione solo un indirizzo autorizzato ha l'autorizzazione per eseguirla:
+
+\begin{lstlisting}[language=Solidity,numbers=none]
+/// @title IERC1644 Controller Token Operation (part of the ERC1400 Security Token Standards)
+/// @dev See https://github.com/SecurityTokenStandard/EIP-Spec
+
+interface IERC1644 is IERC20 {
+
+    // Controller Operation
+    function isControllable() external view returns (bool);
+    function controllerTransfer(address _from, address _to, uint256 _value, bytes _data, bytes _operatorData) external;
+    function controllerRedeem(address _tokenHolder, uint256 _value, bytes _data, bytes _operatorData) external;
+
+    // Controller Events
+    event ControllerTransfer(
+        address _controller,
+        address indexed _from,
+        address indexed _to,
+        uint256 _value,
+        bytes _data,
+        bytes _operatorData
+    );
+
+    event ControllerRedemption(
+        address _controller,
+        address indexed _tokenHolder,
+        uint256 _value,
+        bytes _data,
+        bytes _operatorData
+    );
+
+}
+\end{lstlisting}
+
+Dato il contrasto tra questa funzionalità (necessaria per motivi di compliance) e i principi di decentralizzazione della blockchain, questa operazione deve svolgersi in modo trasparente. L'unico modo per garantire questa trasparenza è un protocollo dedicato che rende chiara la distinzione tra un trasferimento ed un trasferimento forzato. 
+
 \subsection{ERC-2258: Custodial Ownership Standard}
-https://github.com/ethereum/EIPs/issues/2258
-\section{Implementazione in altre blockchain}
-\subsection{SRC20}
-https://www.swarm.fund/src20
-\subsection{Stellar}
-https://medium.com/quillhash/ethereum-or-stellar-which-platform-is-best-suitable-for-your-ico-sto-7f1368bb942c
-\subsection{EOS}
-https://stoupdates.com/eos-enters-the-security-token-scene-with-the-launch-of-new-protocol/
-\subsection{Hyperledger}
-\subsection{Corda}
-https://stowise.com/company/r3/
-\subsection{Tezos}
-https://www.reddit.com/r/tezos/comments/cdl2bu/tezos_explainer_3_reasons_why_tezos_is_the_best/
-\subsection{NEO}
-https://www.securities.io/neo-announces-formation-of-security-token-industry-consortium/
-\subsection{Tron}
-\section{Considerazioni sulle implementazioni}
+Dato che un security token rappresenta un modo per registrare la proprietà di un asset sottostante, lo standard ERC-2258 è stato creato per soddisfare alcuni casi d'uso in cui il concetto di proprietà non è più sufficiente. Questo è il caso della custodia di un token da parte di un entità terza per conto del proprietario del token. In questo caso la proprietà del token non varia. Un esempio che rende più chiaro il meccanismo di funzionamento di questo standard è la necessità di utilizzare un security token come collaterale. Il proprietario deve poter continuare a beneficiare dei dividendi o del diritto di voto permessi dal token ma, allo stesso tempo, il custode deve poter trasferire la proprietà del token ad un altro beneficiario in caso di liquidazione della posizione.   
+A seguire, possiamo osservare come le funzioni esposte dall'interfaccia dello standard abbiano lo scopo di definire le operazioni eseguibili da un custode: 
+\begin{lstlisting}[language=Solidity,numbers=none]
+/// @title IERCx Custodial Ownership Standard (part of the ERC1400 Security Token Standards Library)
+/// @dev See https://github.com/SecurityTokenStandard/EIP-Spec
 
+interface IERCx {
 
+    // Increase the custody limit of a custodian either directly or via signed authorisation
+    function increaseCustodyAllowance(address _custodian, uint256 _amount) external;
+    function increaseCustodyAllowanceOf(address _tokenHolder, address _custodian, uint256 _amount, uint256 _nonce, bytes _sig) external;
 
+    // Query individual custody limit and total custody limit across all custodians
+    function custodyAllowance(address _tokenHolder, address _custodian) external view returns (uint256);
+    function totalCustodyAllowance(address _tokenHolder) external view returns (uint256);
 
-https://info.binance.com/en/research/marketresearch/tokenization.html 
+    // Allows a custodian to exercise their right to transfer custodied tokens
+    function transferByCustodian(address _tokenHolder, address _receiver, uint256 _amount) external;
 
+    // Custody Events
+    event CustodyTransfer(address _custodian, address _from, address _to, uint256 _amount);
+    event CustodyAllowanceChanged(address _tokenHolder, address _custodian, uint256 _oldAllowance, uint256 _newAllowance);
 
+}
+\end{lstlisting}
 
-https://medium.com/atomic-capital/state-of-the-standards-a-technical-review-of-current-digital-securities-standards-3bc79f5aaf73
-https://medium.com/@ElectricCapital/electric-capital-developer-report-h1-2019-7d836d68fecb
+Lo standard permette al proprietario di nominare un custode e di affidargli un numero definito di token. 
+Un altro motivo rilevante per l'introduzione del concetto di custodia è favorire la riduzione del rischio di frodi e di hacking grazie alla specializzazione di servizi dedicati. Ciò permette di evitare al proprietario del token l'onere di questi compiti.
