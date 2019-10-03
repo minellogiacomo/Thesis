@@ -108,33 +108,36 @@
 %--------------------------------------------------------------
 
 \chapter{Analisi delle Security Token Offering}
-Ad oggi sono stati pubblicati solamente due studi empirici riguardo le STO. Il primo studio, pubblicato da Ante e Fielder, si avvale di un dataset composto da 151 security token, più precisamente token che svolgono il ruolo di securities ma non per questo necessariamente conformi alle normative in materia di securities. Ad esempio, tra i token analizzati nel suddetto studio è considerato il token DAO che è stato riconosciuto nel 2017 come security dalla SEC. Tuttavia il token DAO non è mai stato autorizzato per l'emissione. allo stesso modo molti altri token considerati non sono mai stati registrati come securities. 
-Di conseguenza, includere queste ICO in un'analisi empirica  delle STO risulta inappropriato poiché ne gli issuer ne gli investitori erano al corrente di operare con securities. 
+Ad oggi sono stati pubblicati solamente due studi empirici riguardo le STOs. Il primo studio, pubblicato da Ante e Fielder, si avvale di un \textit{dataset} composto da 151 security tokens, più precisamente tokens che svolgono il ruolo di securities ma non per questo necessariamente conformi alle normative in materia di securities. Ad esempio, tra i tokens analizzati nel suddetto studio è considerato il token \textit{DAO} che è stato riconosciuto nel 2017 come security dalla \textit{SEC}. Tuttavia il token \textit{DAO} non è mai stato autorizzato per l'emissione. Allo stesso modo molti altri tokens considerati non sono mai stati registrati come securities. 
+Di conseguenza, includere queste ICOs in un'analisi empirica  delle STOs risulta inappropriato poiché sia gli issuer che gli investitori non erano al corrente di operare con delle securities. 
 
-Il secondo studio, condotto da Florie Mazzorana-Kremer, analizza un ristretto sottoinsieme di STO selezionate secondo criteri specifici con il fine di analizzare il turnover dei token. Questo studio presenta delle conclusioni particolarmente rilevanti sebbene l'autrice stessa esprime le grandi limitazioni di un analisi empirica di un fenomeno così recente. 
-La maggior parte delle STO che rispettano i canoni definiti nel presente elaborato infatti sono limitate al trading per investitori accreditati o sono limitate a giurisdizioni specifiche. Ciò presenta un problema per la raccolta dei dati storici, anch'essi spesso disponibili solo a investitori accreditati. In primo luogo verranno analizzati fonti secondarie che permettono di fornire un'interessante panoramica del fenomeno delle STO.  
-Al fine di fornire un contributo originale in seguito si analizzeranno non dati di trading, bensì dati riguardo le caratteristiche di un sottoinsieme di security token. 
+Il secondo studio, condotto da Florie Mazzorana-Kremer, analizza un ristretto sottoinsieme di STOs selezionate secondo criteri specifici con il fine di analizzare il \textit{turnover} dei tokens. Questo studio presenta delle conclusioni particolarmente rilevanti sebbene l'autrice stessa esprime le grandi limitazioni di un analisi empirica di un fenomeno così recente. 
+La maggior parte delle STOs che rispettano i canoni definiti nel presente elaborato infatti sono limitate al trading per investitori accreditati o sono limitate a giurisdizioni specifiche. Ciò presenta un problema per la raccolta dei dati storici, anch'essi spesso disponibili solo a investitori accreditati. In primo luogo, ai fini di quest'analisi, verranno analizzati fonti secondarie che permettono di fornire un'interessante panoramica del fenomeno delle STOs.  
+Avendo l'obiettivo di fornire un contributo originale, in seguito si analizzeranno non dati di trading bensì dati riguardo le caratteristiche di un sottoinsieme di STOs. 
 
 \section{Analisi dei dati}
 \subsection{5th ICO/STO Report}
-Una fonte secondaria che risulta molto utile per comprendere meglio il fenomeno delle STO è il report pubblicato da PWC in associazione con CryptoValley. Questo report, giunto alla quinta edizione mira a delineare con chiarezza l'evoluzione del fenomeno delle ICO, delle STO e delle IEO. Sebbene le fonti di dati primarie utilizzate dallo studio non siano state rese pubbliche è ragionevole assumere la bontà dei risultati in quanto congrui con le osservazioni presentate in questo elaborato. 
-La definizione adottata nel report per identificare se una token sale sia o meno una STO è: \textit{"Security Token Offering (“STO”) is a sale of tokens with features comparable to normal securities, i.e., fully regulated and approved within at least one jurisdiction."}
-Ciò risulta essere in linea con la definizione adottata in questo elaborato ed è quindi possibile procedere a discutere i risultati di questo report. 
+Una fonte secondaria che risulta molto utile per comprendere meglio il fenomeno delle STOs è il report pubblicato da PWC in associazione con CryptoValley. Questo report, giunto alla quinta edizione mira a delineare con chiarezza l'evoluzione del fenomeno delle ICOs, delle STOs e delle IEOs. Sebbene le fonti di dati primarie utilizzate dallo studio non siano state rese pubbliche è ragionevole assumere la bontà dei risultati in quanto congrui con le osservazioni presentate in questo elaborato. 
+La definizione adottata nel report per identificare se una token sale sia o meno una STO è: 
+
+\textit{‘‘Security Token Offering (‘‘STO’’) is a sale of tokens with features comparable to normal securities, i.e., fully regulated and approved within at least one jurisdiction.’’}
+
+Ciò risulta essere in linea con la definizione adottata in questo elaborato ed è quindi possibile procedere a presentare i risultati di questo report. 
 \begin{figure}[H]
   \includegraphics[width=\linewidth]{tokensales.png}
   \caption{Token sales data}
   \label{fig:tksales}
 \end{figure}
 Per prima cosa osserviamo che i dati presentati in figura \ref{fig:tksales} sono in linea con i dati osservati in figura \ref{fig:ico}. 
-Successivamente, in ambito di security token offerings, osserviamo la figura \ref{fig:stoieo}. 
+Successivamente, in ambito di STOs, osserviamo la figura \ref{fig:stoieo}. 
 \begin{figure}[H]
   \includegraphics[width=\linewidth]{stoieo.png}
   \caption{IEO e STO}
   \label{fig:stoieo}
 \end{figure}
-
-\subsection{Dati delle STO Polymath}
-La seguente serie di dati riguarda i token emessi tramite la piattaforma Polymath. La fonte dei dati non è ufficiale e non è ne pubblicata ne mantenuta da Polymath, bensì opera di un membro della community. Nonostante ciò è possibile verificare l'elenco dei token emessi e le loro caratteristiche grazie alla struttura della piattaforma Polymath e alla natura pubblica della blockchain Ethereum. Nei dati sono compresi nove token di test emessi dalla stessa azienda per verificare il corretto funzionamento della piattaforma. Inoltre, è possibile notare come alcuni token siano stati aggiornati dalla versione 2.0.0 basata sullo standard ST-20 alla versione 3.0.0 basata sullo standard ERC-1400. 
+Le informazioni esposte permettono di associare dei dati quantitativi al fenomeno di cui si è discusso fino ad ora. Nel report si stima che il volume delle STOs dalla fine del 2017 alla fine del 2018 sia pari a 442 milioni di dollari. 
+\subsection{Dati delle STOs Polymath}
+La seguente serie di dati riguarda i tokens emessi tramite la piattaforma Polymath. La fonte dei dati non è ufficiale e non è pubblicata o mantenuta da Polymath, bensì opera di un membro della community. Nonostante ciò è possibile verificare l'elenco dei tokens emessi e le loro caratteristiche grazie alla struttura della piattaforma Polymath e alla natura pubblica della blockchain Ethereum. Nei dati sono compresi nove tokens di test emessi dalla stessa azienda per verificare il corretto funzionamento della piattaforma. Inoltre, è possibile notare come alcuni tokens siano stati aggiornati dalla versione 2.0.0 basata sullo standard ST-20 alla versione 3.0.0 basata sullo standard ERC-1400. 
 
 \input{polymathSTOData.tex}
 
@@ -156,7 +159,7 @@ summary(STOData$Investor>1)
 @
 %------------------------------------------------------------------
 
-Questi risultati indicano come in 107 casi nessun investitore possieda il token (caso tipico di una STO non finalizzata) e come in 29 casi solo un investitore possieda il token (caso tipico di una security token offering con minting senza successo). Per quanto riguarda le STO che sono state lanciate con successo osserviamo che:
+Questi risultati indicano come in 107 casi nessun investitore possieda il token (caso tipico di una STO non finalizzata) e come in 29 casi solo un investitore possieda il token (caso tipico di una security token offering con minting senza successo). Per quanto riguarda le STOs che sono state lanciate con successo osserviamo che:
 
 <<chunk3>>=
 summary(subset(STOData, Investor > 1)$Investor)
@@ -167,7 +170,7 @@ summary(subset(STOData, Investor > 1)$Investor)
 plot(subset(STOData, Investor > 1)$Investor, main = "Investors")
 @
 
-In figura \ref{fig:plot2} si osserva come nonostante l'esclusione dei dati riguardanti le STO non riuscite il numero di investitori si comunque ridotto. Questo dato tuttavia non ci da indicazioni sull'effettivo successo o insuccesso di una STO in quanto non abbiamo informazioni effettive sulla quantità di token acquistati e sul prezzo di vendita. 
+In figura \ref{fig:plot2} si osserva come nonostante l'esclusione dei dati riguardanti le STOs non riuscite il numero di investitori sia comunque ridotto. Questo dato tuttavia non ci da indicazioni sull'effettivo successo o insuccesso di una STO in quanto non abbiamo informazioni effettive sulla quantità di tokens acquistati e sul prezzo di vendita. 
 
 Un altro elemento di analisi da considerare è la granularità del token che ne permette il frazionamento. 
 <<chunk4>>=
@@ -176,9 +179,9 @@ sum(subset(STOData, Investor > 1)$Granularity=="1")
 @
 %------------------------------------------------------------------
 
-Tra le STO di successo, definite in base ad un numero di investitori maggiore di uno, in 25 casi su 38 il token non è frazionabile. Questo indica che in questo campione l'assenza della frazionabilità non è un fattore limitate per quanto riguarda la possibilità di investimento. Tuttavia, essendo una funzionalità relativamente banale da implementare, risulta comunque essere una caratteristica che può fornire un valore aggiunto anche se marginale. 
+Tra le STOs di successo, definite in base ad un numero di investitori maggiore di uno, in 25 casi su 38 il token non è frazionabile. Questo indica che in questo campione l'assenza della frazionabilità non è un fattore limitate per quanto riguarda la possibilità di investimento. Tuttavia, essendo una funzionalità relativamente banale da implementare, risulta comunque essere una caratteristica che può fornire un valore aggiunto anche se marginale. 
 
-Un ultimo dato da considerare è il numero massimo di token. Possiamo osservare che:
+Un ultimo dato da considerare è il numero massimo di tokens. Possiamo osservare che:
 \begin{footnotesize} 
 <<chunk5>>=
 options(scipen = 999)
@@ -188,7 +191,7 @@ subset(STOData, Investor > 1)$Total)))
 %------------------------------------------------------------------
 
 \end{footnotesize}
-Questo ci da un'indicazione utile per spiegare lo scarso interesse per la frazionabilità. Infatti, con un numero di investitori limitato e in media una grande quantità di token, la frazionabilità può risultare superflua. 
+Questo ci da un'indicazione utile per spiegare lo scarso interesse per la frazionabilità. Infatti, con un numero di investitori limitato e in media una grande quantità di tokens, la frazionabilità può risultare superflua. 
 
 %--------------------------------------------------------------
 
