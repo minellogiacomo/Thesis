@@ -108,7 +108,7 @@
 %--------------------------------------------------------------
 
 \chapter{Analisi delle Security Token Offering}
-Ad oggi sono stati pubblicati solamente due studi empirici riguardo le STOs. Il primo studio, pubblicato da Ante e Fielder, si avvale di un \textit{dataset} composto da 151 security tokens, più precisamente tokens che svolgono il ruolo di securities ma non per questo necessariamente conformi alle normative in materia di securities. Ad esempio, tra i tokens analizzati nel suddetto studio è considerato il token \textit{DAO} che è stato riconosciuto nel 2017 come security dalla \textit{SEC}. Tuttavia il token \textit{DAO} non è mai stato autorizzato per l'emissione. Allo stesso modo molti altri tokens considerati non sono mai stati registrati come securities. 
+Ad oggi sono stati pubblicati solamente due studi empirici riguardo le STOs. Il primo studio, pubblicato da Ante e Fielder, si avvale di un \textit{dataset} composto da 151 security tokens, o meglio tokens che svolgono il ruolo di securities, in quanto non tutte soddisfano necessariamente le normative riguardanti le securities. Ad esempio, tra i tokens analizzati nel suddetto studio è considerato il token \textit{DAO} che è stato riconosciuto nel 2017 come security dalla \textit{SEC}. Tuttavia il token \textit{DAO} non è mai stato autorizzato per l'emissione. Allo stesso modo molti altri tokens considerati non sono mai stati registrati come securities. 
 Di conseguenza, includere queste ICOs in un'analisi empirica  delle STOs risulta inappropriato poiché sia gli issuer che gli investitori non erano al corrente di operare con delle securities. 
 
 Il secondo studio, condotto da Florie Mazzorana-Kremer, analizza un ristretto sottoinsieme di STOs selezionate secondo criteri specifici con il fine di analizzare il \textit{turnover} dei tokens. Questo studio presenta delle conclusioni particolarmente rilevanti sebbene l'autrice stessa esprime le grandi limitazioni di un analisi empirica di un fenomeno così recente. 
@@ -117,7 +117,7 @@ Avendo l'obiettivo di fornire un contributo originale, in seguito si analizzeran
 
 \section{Analisi dei dati}
 \subsection{5th ICO/STO Report}
-Una fonte secondaria che risulta molto utile per comprendere meglio il fenomeno delle STOs è il report pubblicato da PWC in associazione con CryptoValley. Questo report, giunto alla quinta edizione mira a delineare con chiarezza l'evoluzione del fenomeno delle ICOs, delle STOs e delle IEOs. Sebbene le fonti di dati primarie utilizzate dallo studio non siano state rese pubbliche è ragionevole assumere la bontà dei risultati in quanto congrui con le osservazioni presentate in questo elaborato. 
+Una fonte secondaria che risulta molto utile per comprendere meglio il fenomeno delle STOs è il report pubblicato da PWC in associazione con CryptoValley. Questo report, giunto alla quinta edizione mira a delineare con chiarezza l'evoluzione del fenomeno delle ICOs, delle STOs e delle IEOs. Sebbene le fonti di dati primarie utilizzate dallo studio non siano state rese pubbliche, è ragionevole assumere la bontà dei risultati in quanto congrui con le osservazioni presentate in questo elaborato. 
 La definizione adottata nel report per identificare se una token sale sia o meno una STO è: 
 
 \textit{‘‘Security Token Offering (‘‘STO’’) is a sale of tokens with features comparable to normal securities, i.e., fully regulated and approved within at least one jurisdiction.’’}
@@ -179,7 +179,7 @@ sum(subset(STOData, Investor > 1)$Granularity=="1")
 @
 %------------------------------------------------------------------
 
-Tra le STOs di successo, definite in base ad un numero di investitori maggiore di uno, in 25 casi su 38 il token non è frazionabile. Questo indica che in questo campione l'assenza della frazionabilità non è un fattore limitate per quanto riguarda la possibilità di investimento. Tuttavia, essendo una funzionalità relativamente banale da implementare, risulta comunque essere una caratteristica che può fornire un valore aggiunto anche se marginale. 
+Tra le STOs di successo, definite in base ad un numero di investitori maggiore di uno, in 25 casi su 38 il token non è frazionabile. Questo indica che in questo campione l'assenza della frazionabilità non è un fattore limitante per quanto riguarda la possibilità di investimento. Tuttavia, essendo una funzionalità relativamente banale da implementare, risulta comunque essere una caratteristica che può fornire un valore aggiunto anche se marginale. 
 
 Un ultimo dato da considerare è il numero massimo di tokens. Possiamo osservare che:
 \begin{footnotesize} 
